@@ -254,6 +254,31 @@
     background: #2980b9;
 }
 
+.pedido-temp {
+    background-color: #f9f9f9;
+    border: 2px dashed #3498db;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+.pedido-temp h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+.pedido-temp button {
+    margin-right: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.pedido-temp button#cancelarPedidoBtn {
+    background-color: #e74c3c;
+}
+
+
 #contenedor-pedidos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

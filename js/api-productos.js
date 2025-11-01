@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const productos = await response.json();
         console.log("Productos cargados:", productos);
 
-        contenedor.innerHTML = ""; 
+        contenedor.innerHTML = "";
 
         productos.forEach(prod => {
             const card = document.createElement("div");
@@ -27,7 +27,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <p class="producto-sku">SKU: ${prod.sku}</p>
                     <p class="producto-precio">$${prod.precio_venta.toFixed(2)}</p>
                     <p class="producto-stock">Stock: ${prod.stock}</p>
-                    <button class="add-to-cart" data-id="${prod.id}" data-name="${prod.nombre}" data-price="${prod.precio_venta}" data-image="${prod.imagen || 'https://via.placeholder.com/250x200?text=Sin+Imagen'}">Añadir al Carrito</button>
+                    <button class="add-to-cart"
+                        data-id="${prod.id}"
+                        data-product="${prod.nombre}"
+                        data-price="${prod.precio_venta}"
+                        data-image="${prod.imagen || 'https://via.placeholder.com/250x200?text=Sin+Imagen'}">
+                        Añadir al Carrito
+                    </button>
                 </div>
             `;
             contenedor.appendChild(card);

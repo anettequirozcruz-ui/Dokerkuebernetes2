@@ -4,7 +4,7 @@ const cartToggle = document.getElementById('open-cart');
 const cartSidebar = document.getElementById('cart-sidebar');
 const closeCart = document.getElementById('close-cart');
 const cartItems = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
+const cartTotal = document.getElementById('cart-total-amount');
 const cartCount = document.querySelector('.cart-count');
 const checkoutBtn = document.getElementById('checkout-btn');
 
@@ -44,24 +44,33 @@ function setupCartEvents() {
                 alert('Tu carrito está vacío. Agrega algunos productos antes de realizar el pedido.');
                 return;
             }
-            // Guardar carrito actual como pedido
-            saveOrder();
-            // Limpiar carrito
+
+            // ✅ Guardar carrito como pedido temporal antes de redirigir
+            localStorage.setItem("pedidoTemporal", JSON.stringify(cart));
+
+            // Limpiar carrito visualmente si quieres
             cart = [];
             localStorage.setItem('cart', JSON.stringify(cart));
+
             // Redirigir a pedidos
             window.location.href = 'pedidos.html';
         });
     }
 
+
+
     // Cerrar carrito al hacer clic fuera de él
-    document.addEventListener('click', function (e) {
-        if (cartSidebar.classList.contains('open') &&
-            !cartSidebar.contains(e.target) &&
-            !e.target.closest('.cart-icon')) {
-            cartSidebar.classList.remove('open');
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('add-to-cart')) {
+            const id = e.target.dataset.id;
+            const nombre = e.target.dataset.product;
+            const precio = parseFloat(e.target.dataset.price);
+            const imagen = e.target.dataset.image;
+
+            addToCart(id, nombre, precio, imagen);
         }
     });
+
 
     // Event delegation para botones de cantidad y eliminar
     if (cartItems) {
@@ -175,7 +184,7 @@ function updateCart() {
     // Actualizar total
     if (cartTotal) {
         const total = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
-        cartTotal.textContent = `$${total.toFixed(2)} MXN`;
+        cartTotal.textContent = `${total.toFixed(2)} MXN`;
     }
 
     // Guardar en localStorage

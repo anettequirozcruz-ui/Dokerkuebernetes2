@@ -35,22 +35,22 @@
 
                 <!-- barrita de busqueda -->
                 <div class="header-actions">
-                <div class="search-box">
-                    <input type="text" placeholder="Buscar autopartes...">
-                    <button><i class="fas fa-search"></i></button>
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar autopartes...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <!-- Carrito de Compras icono -->
+                    <div class="cart-icon" id="open-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+
+                    <div class="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
                 </div>
-                
-                <!-- Carrito de Compras icono -->
-                <div class="cart-icon" id="open-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </div>
-                
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-                
+
                 <!-- Ícono de login -->
                 <div class="login-icon">
                     <a href="loggin.html" title="Iniciar sesión">
@@ -83,10 +83,11 @@
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
-                <span class="cart-total-amount">0.00</span>
+                <span id="cart-total-amount" class="cart-total-amount">0.00</span>
             </div>
-            <button class="checkout-btn">Proceder al pedido</button>
+            <button id="checkout-btn" class="checkout-btn">Proceder al pedido</button>
         </div>
+
     </div>
 
 
@@ -104,6 +105,18 @@
     <section class="container" id="productos">
         <h2>Lista de Productos</h2>
         <div id="productos-container"></div>
+        <div class="producto-imagen">
+            <img src="" alt="Bomba de agua">
+        </div>
+        <div class="producto-info">
+            <h3 class="producto-nombre">Bomba de agua</h3>
+            <p class="producto-marca">ACDelco</p>
+            <p class="producto-sku">SKU:C-BOM-AGU19</p>
+            <p class="producto-precio">1800.00</p>
+            <p class="producto-stock">Stock: 8</p>
+            <button class="add-to-cart" data-id="3" data-name="Bomba de agua" data-price="1800.00"
+                data-image="https://via.placeholder.com/250x200?text=Sin+Imagen">Añadir al Carrito</button>
+        </div>
     </section>
 
     <!--Seccion de recomendacciones-->
@@ -122,57 +135,57 @@
 
     <!-- Footer -->
     <footer id="contacto">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>AutoPartes MX</h3>
-                <p>Tu proveedor confiable de autopartes de calidad. Ofrecemos los mejores precios y servicio al
-                    cliente excepcional.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AutoPartes MX</h3>
+                    <p>Tu proveedor confiable de autopartes de calidad. Ofrecemos los mejores precios y servicio al
+                        cliente excepcional.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#categorias">Categorías</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#ofertas">Ofertas</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Información de Contacto</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. Insurgentes 123, CDMX, México</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+52 55 1234 5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@autopartesmx.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="footer-column">
-                <h3>Enlaces Rápidos</h3>
-                <ul class="footer-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#categorias">Categorías</a></li>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="#ofertas">Ofertas</a></li>
-                    <li><a href="#">Sobre Nosotros</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Información de Contacto</h3>
-                <ul class="contact-info">
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Av. Insurgentes 123, CDMX, México</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <span>+52 55 1234 5678</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <span>info@autopartesmx.com</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-clock"></i>
-                        <span>Lun - Vie: 9:00 AM - 6:00 PM</span>
-                    </li>
-                </ul>
+            <!-- copyright separado correctamente -->
+            <div class="copyright">
+                <p>&copy; 2023 AutoPartes MX. Todos los derechos reservados.</p>
             </div>
         </div>
-        <!-- copyright separado correctamente -->
-        <div class="copyright">
-            <p>&copy; 2023 AutoPartes MX. Todos los derechos reservados.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
     <script src="js/carrito.js"></script>
